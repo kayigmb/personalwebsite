@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-image: url("images/back.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+main {
+  width: 100%;
+  height: 100dvh;
+}
+
+.header {
+  width: 100%;
+  height: 35px;
+  padding: 0 20px;
+  background-color: rgba(225, 225, 225, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.apple {
+  width: 18px;
+  height: 20px;
+}
+
+.finder {
+  font-weight: bold;
+}
+
+.headerone {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.headertwo {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.logos {
+  height: 25px;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  height: calc(100dvh - (80px + 35px));
+}
+
+.footer {
+  width: 100%;
+  height: 80px;
+  bottom: 0px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottomtaskbar {
+  height: 70px;
+  display: flex;
+  gap: 20px;
+  padding: 0 20px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  border: black;
+  border-radius: 20px;
+}
+
+.footerLogos {
+  transition: all 0.2s ease-in-out;
+}
+
+.footerLogosImages {
+  height: 50px;
+  width: 50px;
+}
+
+.footerLogos:hover {
+  margin-bottom: 20px;
+}
+
+.verticalline {
+  height: 50px;
+  width: 2px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.footerLogos:hover + .footerLogos {
+  margin-bottom: 10px;
+}
+
+.footerLogos:has(+ .footerLogos:hover) {
+  margin-bottom: 10px;
+}
+
+.chrome {
+  position: absolute;
+  z-index: 100;
+  background-color: rgba(225, 225, 225, 0.73);
+  border-radius: 10px;
+  height: 100%;
+  width: 50%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.chromeheader {
+  background-color: #dee1e6;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  top: 0;
+}
+
+.divheader {
+  display: flex;
+  padding: 5px 5px 0px 5px;
+  width: 100%;
+  gap: 10px;
+}
+
+.close,
+.minimise,
+.maximise {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.googleimage {
+  width: 15px;
+  height: 15px;
+}
+
+.googleimagemax {
+  width: 10px;
+  height: 10px;
+}
+
+.close:hover {
+  background-color: #ff5f56;
+}
+.minimise:hover {
+  background-color: #ffbd2e;
+}
+.maximise:hover {
+  background-color: #27c93f;
+}
+
+.controls {
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+}
+
+.headertab {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  height: 40px;
+  border-radius: 10px 10px 0px 0px;
+  padding: 10px;
+}
+
+.headertab div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.globe {
+  width: 20px;
+  height: 20px;
+}
+
+.divbodyhead {
+  padding: 1px 10px;
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.bodycontrols {
+  width: 20px;
+  cursor: not-allowed;
+  height: 20px;
+}
+
+.divbodybody {
+  margin-top: 2px;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.websiteurl {
+  width: 80%;
+  height: 80%;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  background-color: #dee1e6;
+  border-radius: 20px;
+}
+
+.websiteurl div {
+  border-radius: 100%;
+  background-color: white;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  padding: 2px;
+}
+
+.weburl {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.googleIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.dotGoogle {
+  height: 5px;
+  width: 5px;
+  display: none;
+  border-radius: 100%;
+  background: black;
+}
