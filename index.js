@@ -1,3 +1,4 @@
+// initalization of the variable
 const googleChrome = document.querySelector(".chrome");
 const googleChromeHeader = document.querySelector(".divheader");
 const footer = document.querySelector(".footer");
@@ -8,6 +9,13 @@ const closeButton = document.querySelectorAll(".close");
 const minimiseButton = document.querySelector(".minimise");
 const googleIcon = document.querySelector(".googleIcon");
 const chromBody = document.querySelector(".bodydiv");
+const startup = document.querySelector(".start");
+const mainPage = document.querySelector(".mainPage");
+
+setTimeout(() => {
+  startup.style.display = "none";
+  mainPage.style.display = "block";
+}, 2000);
 
 let positionX, positionY;
 
@@ -27,6 +35,7 @@ maximiseButton.addEventListener("click", () => {
     googleChrome.style.height = `${googleSize.height}px`;
     googleChrome.style.left = `${positionX}px`;
     googleChrome.style.top = `${positionY}px`;
+    // googleChrome.style.resize = "none";
     return;
   }
   googleSize = googleChrome.getBoundingClientRect();
@@ -34,7 +43,7 @@ maximiseButton.addEventListener("click", () => {
   googleChrome.style.height = "100%";
   googleChrome.style.left = "0px";
   googleChrome.style.top = "0px";
-  section.style.resize = "unset";
+  // section.style.resize = "unset";
   section.style.resize = "none";
   section.style.height = "calc(100vh - 35px)";
   googleChrome.style.borderRadius = "0px";
@@ -176,6 +185,10 @@ const obseserver = new ResizeObserver((mutations) => {
     chromBody.style.width = "50%";
   } else {
     chromBody.style.width = "40%";
+  }
+  if (isMaximised && mutations[0].contentRect.width < 600) {
+    section.style.height = "calc(100dvh - (80px + 35px))";
+    footer.style.display = "";
   }
 });
 
