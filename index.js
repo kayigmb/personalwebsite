@@ -7,30 +7,39 @@ const maximiseButton = document.querySelector(".maximise");
 const closeButton = document.querySelectorAll(".close");
 const minimiseButton = document.querySelector(".minimise");
 const googleIcon = document.querySelector(".googleIcon");
+const chromBody = document.querySelector(".bodydiv");
+
+let positionX, positionY;
 
 //Maximise
 let isMaximised = false;
 
+// collects the google dimensions before maximising the width and height
+let googleSize;
+
 maximiseButton.addEventListener("click", () => {
   if (isMaximised) {
     isMaximised = false;
-    googleChrome.style.width = "50%";
     section.style.height = "calc(100dvh - (80px + 35px))";
     googleChrome.style.borderRadius = "10px";
-    section.style.resize = "";
     footer.style.display = "";
-  } else {
-    googleChrome.style.width = "100%";
-    googleChrome.style.height = "100%";
-    googleChrome.style.left = "0px";
-    googleChrome.style.top = "0px";
-    section.style.resize = "unset";
-    section.style.resize = "none";
-    section.style.height = "calc(100vh - 35px)";
-    googleChrome.style.borderRadius = "0px";
-    footer.style.display = "none";
-    isMaximised = true;
+    googleChrome.style.width = `${googleSize.width}px`;
+    googleChrome.style.height = `${googleSize.height}px`;
+    googleChrome.style.left = `${positionX}px`;
+    googleChrome.style.top = `${positionY}px`;
+    return;
   }
+  googleSize = googleChrome.getBoundingClientRect();
+  googleChrome.style.width = "100%";
+  googleChrome.style.height = "100%";
+  googleChrome.style.left = "0px";
+  googleChrome.style.top = "0px";
+  section.style.resize = "unset";
+  section.style.resize = "none";
+  section.style.height = "calc(100vh - 35px)";
+  googleChrome.style.borderRadius = "0px";
+  footer.style.display = "none";
+  isMaximised = true;
 });
 
 //Minimise Google chrome
@@ -133,6 +142,9 @@ function DragDivChrome({ movementX, movementY }) {
   Left = Math.max(0, Math.min(Left, sectionSize.width - chromeSize.width));
   Top = Math.max(0, Math.min(Top, sectionSize.height - chromeSize.height));
 
+  positionX = Left;
+  positionY = Top;
+
   googleChrome.style.left = `${Left}px`;
   googleChrome.style.top = `${Top}px`;
 }
@@ -153,6 +165,21 @@ window.addEventListener("resize", () => {
   googleChrome.style.left = "0px";
   googleChrome.style.top = "0px";
 });
+
+// observer the movement of the chrome when resizing
+const obseserver = new ResizeObserver((mutations) => {
+  if (mutations[0].contentRect.width <= 360) {
+    chromBody.style.width = "100%";
+  } else if (mutations[0].contentRect.width <= 660) {
+    chromBody.style.width = "70%";
+  } else if (mutations[0].contentRect.width <= 1200) {
+    chromBody.style.width = "50%";
+  } else {
+    chromBody.style.width = "40%";
+  }
+});
+
+obseserver.observe(googleChrome);
 
 const year = document.querySelector(".year");
 let yearToday = new Date();

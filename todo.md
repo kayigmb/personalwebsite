@@ -3,10 +3,10 @@
 
 -- javascript(draggable chrome)
 -- create the portofilio
--- skills
--- work experience
--- Educational 
--- Contacts 
--- Project
--- Responsiveness
--- resisable
+-- Done -- skills
+-- Done -- work experience
+-- Done -- Educational 
+-- Done -- Contacts 
+-- Done -- Project
+-- Responsiveness (still checking on it)
+-- Done -- resisable
