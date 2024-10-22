@@ -8,6 +8,7 @@
 html,
 body {
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -121,10 +122,13 @@ main {
 
 .chrome {
   position: absolute;
+  resize: both;
+  max-width: 100%;
+  max-height: 100%;
   z-index: 100;
   background-color: rgba(225, 225, 225, 0.73);
   border-radius: 10px;
-  height: 100%;
+  height: 80%;
   width: 50%;
   box-sizing: border-box;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -132,15 +136,20 @@ main {
 }
 
 .chromeheader {
+  cursor: default;
   background-color: #dee1e6;
+  z-index: 99;
   width: 100%;
   border-radius: 10px 10px 0 0;
+  position: sticky;
   top: 0;
 }
 
 .divheader {
   display: flex;
   padding: 5px 5px 0px 5px;
+  position: sticky;
+  top: 0;
   width: 100%;
   gap: 10px;
 }
@@ -218,17 +227,39 @@ main {
 
 .bodycontrols {
   width: 20px;
-  cursor: not-allowed;
+  /* cursor: not-allowed; */
   height: 20px;
 }
 
 .divbodybody {
-  margin-top: 2px;
+  top: 0px;
   padding: 5px;
   width: 100%;
-  height: 100%;
+  height: 90%;
   overflow-y: scroll;
+  position: relative;
   background-color: white;
+}
+
+.divbodybody h1 {
+  font-size: 40px;
+}
+
+.divbodybody h1 > span {
+  color: rgb(133 77 14);
+}
+
+.bodydiv {
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  top: 25px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px dashed gray;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.09);
+  width: 40%;
 }
 
 .websiteurl {
@@ -271,4 +302,200 @@ main {
   display: none;
   border-radius: 100%;
   background: black;
+}
+
+@keyframes bounceEffect {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-40px);
+  }
+  60% {
+    transform: translateY(-25px);
+  }
+}
+
+.bouncingEffect {
+  animation: bounceEffect 2s ease;
+  transition: transform ease-in-out;
+  animation-iteration-count: 1;
+}
+
+@media (max-width: 767px) {
+  .bodydiv {
+    width: 100%;
+  }
+  .mobile {
+    display: none;
+  }
+
+  .chrome {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  #closed {
+    display: none;
+  }
+}
+
+.logoProfile {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.profile {
+  width: 70px;
+  object-fit: cover;
+  height: 70px;
+  border-radius: 100%;
+}
+
+.bodyheader {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.contactSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.contactImages {
+  height: 30px;
+  width: 30px;
+}
+.headers {
+  font-size: 30px;
+  /* text-align: center; */
+  font-weight: bolder;
+}
+
+.projectsDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.projectsSingle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 20px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.projectsSingle img {
+  width: 90%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.live {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  left: -100%;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.projectsSingle p {
+  margin-top: 10px;
+}
+
+.projectsSingle:hover > .live {
+  transition: 0.5s ease-in-out;
+  left: 0%;
+}
+
+.live img {
+  width: 40px;
+  height: 40px;
+}
+
+.live img:hover {
+  background-color: #dee1e6;
+  border-radius: 100%;
+  height: 45px;
+  width: 45px;
+}
+
+.contact {
+  margin-top: 40px;
+}
+
+.footerChrome {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.rounded {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 10px;
+  margin-top: 5px;
+  height: 10px;
+  border-radius: 100%;
+}
+
+.singleExperience {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.footerChrome p {
+  text-align: center;
+}
+.skills {
+  margin: 10px 0px 20px 0;
+}
+
+hr {
+  background-color: gray;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.welcome {
+  margin: 20px 0 20px 0;
+}
+
+.Experience,
+.projects,
+.Education,
+.skills {
+  margin: 10px 0 10px 0;
 }

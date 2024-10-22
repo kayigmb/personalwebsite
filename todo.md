@@ -1,3 +1,6 @@
+-- Done -- javascript (time)
+
+
 -- javascript(draggable chrome)
 -- create the portofilio
 -- skills
@@ -6,3 +9,4 @@
 -- Contacts 
 -- Project
 -- Responsiveness
+-- resisable
