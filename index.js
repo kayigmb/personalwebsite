@@ -15,7 +15,7 @@ const mainPage = document.querySelector(".mainPage");
 setTimeout(() => {
   startup.style.display = "none";
   mainPage.style.display = "block";
-}, 700);
+}, 2000);
 
 let positionX, positionY;
 
